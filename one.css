@@ -1,0 +1,110 @@
+<style type="text/css">
+                      .h1{
+                          color:hotpink;
+                      }
+.title{
+    text-align:center;
+    color:deeppink;
+
+
+}
+.main {
+    text-align: center;
+    background-color: peachpuff;
+    border-radius: 20px;
+    width: 400px;
+    height: 350px;
+    margin: auto;
+    position: absolute;
+    top: 150px;
+    left: 100px;
+}
+.box{
+    display:inline-block;
+    justify-content:flex-start;
+}
+.sex{
+    position;relative;
+}
+.h1{
+
+    font-family:"Microsoft PhagsPa";
+    position:absolute;
+    left:170px;
+    top:20px;
+}
+
+.button{
+    background-color: lightpink;
+    padding:1px;
+    border:1px solid #ccc;
+    width:100px;
+    height:40px;
+    color:white;
+    font-size:20px;
+    font-family:lisu;
+    border-radius: 10px;
+
+}
+.button:hover{
+    background-color:lightsalmon;
+    transition: background .5s;
+
+
+}
+
+
+.load{
+    background-color: lightpink;
+
+    border:1px solid #ccc;
+    width:100px;
+    height:40px;
+    color:white;
+    font-size:20px;
+    font-family:lisu;
+    border-radius: 10px;
+}
+.load:hover{
+    background-color:lightsalmon;
+    transition: background .5s;
+
+
+}
+
+.back{
+    height:100vh;
+    width:100vw;
+    position:absolute;
+    top:0;
+    left:0;
+}
+.picture{
+    height:100px;
+
+}
+.other{
+    position:absolute;
+    left:870px;
+    top:330px;
+}
+.font {
+    font-family: kaiti;
+    font-size: 30px;
+    color: lightpink;
+}
+
+.load{
+    position:absolute;
+    top:280px;
+    left:200px;
+
+}
+.button{
+    position:absolute;
+    top:280px;
+    left:100px;
+}
+
+
+</style>
