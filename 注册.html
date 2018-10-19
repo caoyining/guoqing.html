@@ -19,6 +19,63 @@
     <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" />
 </head>
 <body>
+<?php
+$nameErr = "";
+$name = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+    if (empty($_POST["name"]))
+    {
+        $nameErr = "名字是必需的";
+    }
+    else
+    {
+        $name = test_input($_POST["name"]);
+        if (!preg_match("[\u4e00-\u9fa5] ",$name))
+        {
+            $nameErr = "只允许中文字符";
+        }
+         if (empty($_POST["password"]))
+    {
+        $passwordErr = "密码是必需的";
+    }
+    else
+    {
+        $password = test_input($_POST["password"]);
+        if (!preg_match("^[a-zA-Z][a-zA-Z0-9_]{4,15}$
+ ",$name))
+        {
+            $nameErr = "只允许字母开头，允许5-16字节，允许字母数字下划线";
+        }
+    }
+?>
+<?php
+
+
+$name=$_POST['name'];
+
+$password=$_POST['password'];
+;
+
+
+
+
+if ($conn->connect_error) {
+die("连接失败: " . $conn->connect_error);
+}
+
+$sql = "INSERT INTO new2 (name, password)
+VALUES ('$name', '$password')";
+
+if ($conn->query($sql) === TRUE) {
+echo "新记录插入成功";
+} else {
+echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
+
 <div class="container-fluid">
     <div class="row titlebox">
         <div class="col-md-4 col-xs-0 ">
@@ -31,23 +88,27 @@
             <P>填表吧，收获你的幸福</P>
         </div>
     </div>
-    <marquee ><p>一定要久久啊久久啊久久啊    </p>
-    <img src="1.jpg" class="one">
-        <img src="2.jpg" class="one">
-        <img src="3.jpg" class="one">
-        <img src="4.jpg" class="one">
-        <p>下拉填表</p>
-    </marquee>
+
     <div class="row newsbox">
         <div class="col-md-4 col-xs-0 ">
 
         </div>
         <div class="col-md-4 col-xs-12 ">
             <h1 class="maintitle" >注册</h1>
-           <p> 用户名<input type="text"></p>
-           <p>输入密码<input type="password"></p>
+
+
+
+
+
+            <form action="new1.php" method="post">
+                名字（中文字符）: <input type="text" name="name" value="<?php echo $name;?>">
+                <span class="error">* <?php echo $nameErr;?></span>
+
+           <p>输入密码（只允许字母开头，允许5-16字节，允许字母数字下划线）<input type="password" name="password" value="<?php echo $password;?>"></p>
+                <span class="error">*<?php echo $passwordErr;?></span>
            <p> 再次输入密码<input type="password"></p>
             <center><button type="button" class="loadbutton">点此注册</button></center>
+            </form>
         </div>
         <div class="col-md-4 col-xs-0 ">
 

@@ -7,6 +7,29 @@
 </head>
 <link rel="stylesheet" href="two.css" type="text/css" />
 <body >
+<?php
+$name = $_GET["name"];
+$userkey = $_post["password"];
+
+echo $name;
+echo $password;
+?>
+<?php
+$con = mysql_connect("localhost","peter","abc123");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+
+mysql_select_db("my_db", $con);
+
+
+$password= mysql_query("SELECT * FROM password");
+
+}
+
+mysql_close($con);
+?>
 <img src="beijing.jpg" class="picture">
 <div class="header1">
     <h1 >每一次相遇都是美好</h1>
@@ -18,8 +41,8 @@
 
 <div class="bodymain">
     <h1 class="maintitle" >登录</h1>
-    <p class="name" >姓名：<input type="text"></p>
-    <p class="secret">密码：<input type="password"></p>
+    <p class="name" >姓名：<input type="text" name="name1"></p>
+    <p class="secret">密码：<input type="password" name="password1"></p>
     <center><button type="button" class="loadbutton">点此进入</button></center>
 </div>
 
